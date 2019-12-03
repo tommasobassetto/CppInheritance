@@ -5,3 +5,5 @@ CppInheritance/CppInheritance.vcxproj.user
 *.ipch
 *.suo
 *.db
+x64/
+CppInheritance/x64/
