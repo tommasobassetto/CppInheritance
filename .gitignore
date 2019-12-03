@@ -1,0 +1,7 @@
+CppInheritance.sln
+CppInheritance/CppInheritance.vcxproj
+CppInheritance/CppInheritance.vcxproj.filters
+CppInheritance/CppInheritance.vcxproj.user
+*.ipch
+*.suo
+*.db
