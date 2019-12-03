@@ -3,6 +3,7 @@
 #include "Truck.h"
 #include "Boat.h"
 #include <stdexcept>
+#include "StopSign.h"
 
 Car::Car(std::string license, int num_passengers) :Vehicle(license, 4, 0, 20)
 {
@@ -41,4 +42,9 @@ void Car::collide(Vehicle *other) {
 	// and the only effect is a slight speed decrease
 	speed_ -= 1;
 
+}
+
+// A RoadEvent has been posted. This is how the car reacts
+void Car::notifyObservers(RoadEvent r) {
+	// Does nothing
 }

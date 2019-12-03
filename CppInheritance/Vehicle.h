@@ -36,9 +36,11 @@ public:
 
 	float getSpeed();
 
-	virtual void accelerate();
-	virtual void decelerate();
-	virtual void move();
+	bool canMove();
+
+	void accelerate();
+	void decelerate();
+	void move();
 
 	void loadCargo(int num_tons);
 	void unloadCargo(int num_tons);
@@ -46,10 +48,9 @@ public:
 	void refuel();
 
 	// This is called when two vehicles collide. Virtual functions must be overloaded by the child class.
-	virtual void collide(Vehicle *other); 
+	virtual void collide(Vehicle *other) {}
 
-	// Gets called whenever a RoadEvent happens
-	virtual void notifyObservers(RoadEvent r);
+	// Gets called whenever a RoadEvent happens. This is the observer pattern.
+	virtual void notifyObservers(RoadEvent r) {}
 
 };
-

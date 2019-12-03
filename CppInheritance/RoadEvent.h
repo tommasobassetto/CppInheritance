@@ -11,5 +11,6 @@ protected:
 
 public:
 	RoadEvent(EventType set_event_type) { event_type_ = set_event_type; }
+	EventType getEventType() { return event_type_; }
 };
 

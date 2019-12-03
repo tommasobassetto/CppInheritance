@@ -13,7 +13,7 @@ Vehicle::Vehicle(std::string set_license, int set_max_passengers, int set_cargo_
 std::string Vehicle::getLicense() { return license_plate_; }
 
 int Vehicle::getMaxPassengers() { return max_passengers_; }
-int Vehicle::getNumPassengers() { return num_passengers; }
+int Vehicle::getNumPassengers() { return num_passengers_; }
 
 int Vehicle::getCargoCapacity() { return max_cargo_; }
 int Vehicle::getLoadedCargo() { return num_tons_cargo; }
@@ -22,6 +22,8 @@ float Vehicle::getFuelCapacity() { return fuel_capacity_; }
 float Vehicle::getAvailableFuel() { return available_fuel_; }
 
 float Vehicle::getSpeed() { return speed_; }
+
+bool Vehicle::canMove() { return can_move; }
 
 void Vehicle::loadCargo(int num_tons) {
 	if (num_tons_cargo + num_tons > max_cargo_ || num_tons < 0) {
@@ -39,6 +41,20 @@ void Vehicle::unloadCargo(int num_tons) {
 	else {
 		num_tons_cargo -= num_tons;
 	}
+}
+
+void Vehicle::accelerate() {
+	speed_ += 10;
+	available_fuel_ -= speed_;
+}
+
+void Vehicle::decelerate() {
+	speed_ -= 10;
+	available_fuel_ -= speed_;
+}
+
+void Vehicle::move() {
+	available_fuel_ -= speed_;
 }
 
 void Vehicle::refuel() {
